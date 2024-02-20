@@ -33,12 +33,18 @@ func PrintStr(s string) {
 	}
 }
 
-func main() {
-	a := 13
-	b := 2
-	UltimateDivMod(&a, &b)
-	fmt.Println(a)
-	fmt.Println(b)
+func StrLen(s string) int {
+	arr := []rune(s)
+	count := 0
 
-	PrintStr("Hello World!")
+	for i := 0; i <= len(arr); i++ {
+		count += 1
+	}
+	z01.PrintRune(rune(count))
+	return count
+}
+
+func main() {
+	l := StrLen("Hello World!")
+	fmt.Println(l)
 }
