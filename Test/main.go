@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+
+	"github.com/01-edu/z01"
 )
 
 func PointOne(n *int) {
@@ -18,8 +20,17 @@ func DivMod(a int, b int, div *int, mod *int) {
 }
 
 func UltimateDivMod(a *int, b *int) {
+	temp := *a
 	*a = *a / *b
-	*b = *a % *b
+	*b = temp % *b
+}
+
+func PrintStr(s string) {
+	arr := []rune(s)
+
+	for i := 0; i < len(arr); i++ {
+		z01.PrintRune(arr[i])
+	}
 }
 
 func main() {
@@ -28,4 +39,6 @@ func main() {
 	UltimateDivMod(&a, &b)
 	fmt.Println(a)
 	fmt.Println(b)
+
+	PrintStr("Hello World!")
 }
