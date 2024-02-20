@@ -17,12 +17,15 @@ func DivMod(a int, b int, div *int, mod *int) {
 	*mod = a % b
 }
 
+func UltimateDivMod(a *int, b *int) {
+	*a = *a / *b
+	*b = *a % *b
+}
+
 func main() {
 	a := 13
 	b := 2
-	var div int
-	var mod int
-	DivMod(a, b, &div, &mod)
-	fmt.Println(div)
-	fmt.Println(mod)
+	UltimateDivMod(&a, &b)
+	fmt.Println(a)
+	fmt.Println(b)
 }
