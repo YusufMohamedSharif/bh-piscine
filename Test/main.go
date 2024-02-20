@@ -44,7 +44,16 @@ func StrLen(s string) int {
 	return count
 }
 
+func Swap(a *int, b *int) {
+	temp := *a
+	*a = *b
+	*b = temp
+}
+
 func main() {
-	l := StrLen("Hello World!")
-	fmt.Println(l)
+	a := 0
+	b := 1
+	Swap(&a, &b)
+	fmt.Println(a)
+	fmt.Println(b)
 }
