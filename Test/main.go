@@ -2,8 +2,7 @@ package main
 
 import (
 	"fmt"
-
-	piscine "bh-piscine"
+	"math"
 
 	"github.com/01-edu/z01"
 )
@@ -122,7 +121,26 @@ func IterativeFactorial(nb int) int {
 	}
 }
 
+func isPrime(nb int) bool {
+	if nb <= 1 {
+		return false
+	}
+	if nb <= 3 {
+		return true
+	}
+	if nb%2 == 0 || nb%3 == 0 {
+		return false
+	}
+	sqrtN := int(math.Sqrt(float64(nb)))
+	for i := 5; i <= sqrtN; i += 6 {
+		if nb%i == 0 || nb%(i+2) == 0 {
+			return false
+		}
+	}
+	return true
+}
+
 func main() {
-	fmt.Println(piscine.Sqrt(16))
+	fmt.Println(isPrime(1))
 	// piscine.PrintNbr(-9223372036854775808)
 }
