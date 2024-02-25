@@ -123,6 +123,6 @@ func IterativeFactorial(nb int) int {
 }
 
 func main() {
-	fmt.Println(piscine.Index("Ola!iuyh &^% 6 dk/*", "!iu"))
+	fmt.Println(piscine.Concat("Ola!iuyh &^% 6 dk/*", "!iu"))
 	// piscine.PrintNbr(-9223372036854775808)
 }
