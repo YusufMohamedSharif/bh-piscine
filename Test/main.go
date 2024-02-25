@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 
+	piscine "bh-piscine"
+
 	"github.com/01-edu/z01"
 )
 
@@ -121,6 +123,6 @@ func IterativeFactorial(nb int) int {
 }
 
 func main() {
-	fmt.Println(1)
+	fmt.Println(fmt.Println(piscine.IsPrime(5)))
 	// piscine.PrintNbr(-9223372036854775808)
 }
