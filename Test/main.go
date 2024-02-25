@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"math"
 
 	"github.com/01-edu/z01"
 )
@@ -121,21 +120,22 @@ func IterativeFactorial(nb int) int {
 	}
 }
 
-func isPrime(nb int) bool {
-	if nb <= 1 {
+func isPrime(n int) bool {
+	if n <= 1 {
 		return false
 	}
-	if nb <= 3 {
+	if n <= 3 {
 		return true
 	}
-	if nb%2 == 0 || nb%3 == 0 {
+	if n%2 == 0 || n%3 == 0 {
 		return false
 	}
-	sqrtN := int(math.Sqrt(float64(nb)))
-	for i := 5; i <= sqrtN; i += 6 {
-		if nb%i == 0 || nb%(i+2) == 0 {
+	i := 5
+	for i*i <= n {
+		if n%i == 0 || n%(i+2) == 0 {
 			return false
 		}
+		i += 6
 	}
 	return true
 }
