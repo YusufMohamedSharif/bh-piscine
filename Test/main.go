@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+
 	"github.com/01-edu/z01"
 )
 
@@ -104,6 +106,20 @@ func PrintComb2() {
 	z01.PrintRune('\n')
 }
 
+func IterativeFactorial(nb int) int {
+	result := 1
+
+	if nb < 1 || nb > 20 {
+		return 0
+	} else {
+
+		for i := 1; i <= nb; i++ {
+			result = result * i
+		}
+		return result
+	}
+}
+
 func main() {
-	PrintComb2()
+	fmt.Println(IterativeFactorial(10))
 }
