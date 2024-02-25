@@ -1,16 +1,16 @@
 package piscine
 
-func NRune(s string, n int) rune {
+/*func NRune(s string, n int) rune {
 	if n < 0 || n >= len(s) {
 		return 0
 	}
 	return []rune(s)[n]
-}
+}*/
 
-/*func NRune(s string, n int) rune {
+func NRune(s string, n int) rune {
 	if n >= 0 && n < len(s) {
-		return rune(s[n])
+		return rune(s[n-1])
 	} else {
 		return 0
 	}
-}*/
+}
