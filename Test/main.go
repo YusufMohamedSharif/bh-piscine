@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 
+	piscine "bh-piscine"
+
 	"github.com/01-edu/z01"
 )
 
@@ -121,5 +123,5 @@ func IterativeFactorial(nb int) int {
 }
 
 func main() {
-	fmt.Println(IterativeFactorial(10))
+	fmt.Println(piscine.RecursiveFactorial(10))
 }
