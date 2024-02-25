@@ -4,7 +4,7 @@ import (
 	"github.com/01-edu/z01"
 )
 
-func PrintNbr(n int64) {
+func PrintNbr(n int) {
 	if n == -9223372036854775808 {
 		// Handle special case of minimum int value separately
 		z01.PrintRune('-')
