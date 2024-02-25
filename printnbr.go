@@ -24,6 +24,4 @@ func PrintNbr(n int) {
 	for j := len(digits) - 1; j >= 0; j-- {
 		z01.PrintRune(rune(digits[j]))
 	}
-
-	z01.PrintRune('\n')
 }
