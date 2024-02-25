@@ -123,6 +123,6 @@ func IterativeFactorial(nb int) int {
 }
 
 func main() {
-	fmt.Println(piscine.NRune("Ola!", 4))
+	fmt.Println(piscine.AlphaCount("Ola!iuyh &^% 6 dk/*"))
 	// piscine.PrintNbr(-9223372036854775808)
 }
