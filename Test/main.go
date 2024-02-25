@@ -123,5 +123,5 @@ func IterativeFactorial(nb int) int {
 }
 
 func main() {
-	fmt.Println(piscine.IterativePower(10, 5))
+	fmt.Println(piscine.RecursivePower(10, 5))
 }
