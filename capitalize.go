@@ -1,9 +1,5 @@
 package piscine 
 
-import (
-	"github.com/01-edu/z01"
-)
-
 func Capitalize(s string) string {
 	arr1 := []rune(s)
 	arr2 := []rune{}
