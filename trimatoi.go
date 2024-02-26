@@ -1,25 +1,24 @@
 package piscine
 
 func TrimAtoi(s string) int {
-	if len(s) == 0 {
-		return 0 // Empty string, return 0
-	}
-
-	sign := 1 // Sign of the integer, default is positive
-	result := 0
-	foundNumber := false
-
-	for _, ch := range s {
-		if ch >= '0' && ch <= '9' {
-			foundNumber = true
-			digit := int(ch - '0')
-			result = result*10 + digit
-		} else if ch == '-' && !foundNumber {
-			sign = -1 // Found a negative sign before any number
-		} else if ch != ' ' {
-			return 0 // Invalid input, return 0
+	arr1 := []rune(s)
+	arr2 := []rune{}
+	for i := 0; i < len(arr1); i++ {
+		if arr1[i] >= '0' && arr1[i] <= '9' || arr1[i] == '-' {
+			arr2 = append(arr2, arr1[i])
 		}
 	}
-
-	return result * sign
+	str := string(arr2)
+	result := 0
+	for _, ch := range str {
+		if ch != '-' {
+			digit := int(ch - '0')
+			result = result*10 + digit
+		}
+	}
+	if len(arr2) > 0 && arr2[0] == '-' {
+		return -1 * result
+	} else {
+		return result
+	}
 }
