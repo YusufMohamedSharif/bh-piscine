@@ -1,8 +1,6 @@
 package main
 
 import (
-	"fmt"
-
 	piscine "bh-piscine"
 
 	"github.com/01-edu/z01"
@@ -123,6 +121,6 @@ func IterativeFactorial(nb int) int {
 }
 
 func main() {
-	fmt.Println(piscine.ToLower("askjHYUDHOShdkla\\shjd"))
+	piscine.PrintNbrInOrder(56423147)
 	// piscine.PrintNbr(-9223372036854775808)
 }
