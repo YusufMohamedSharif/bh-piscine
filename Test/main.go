@@ -3,8 +3,6 @@ package main
 import (
 	"fmt"
 
-	piscine "bh-piscine"
-
 	"github.com/01-edu/z01"
 )
 
@@ -126,5 +124,5 @@ func main() {
 	str1 := "Yousif"
 	str2 := "Yousif2"
 	fmt.Println(str1 + str2)
-	fmt.Println(piscine.Join([]string{"Hello!", " How", " are", " you?"}, "123"))
+	// fmt.Println(piscine.Join([]string{"Hello!", " How", " are", " you?"}, "123"))
 }
