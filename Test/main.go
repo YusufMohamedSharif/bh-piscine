@@ -1,6 +1,10 @@
 package main
 
 import (
+	"fmt"
+
+	piscine "bh-piscine"
+
 	"github.com/01-edu/z01"
 )
 
@@ -119,6 +123,7 @@ func IterativeFactorial(nb int) int {
 }
 
 func main() {
+	fmt.Println(piscine.BasicJoin("wqerwe", "rwerwer", "rwerwer"))
 	// fmt.Println(piscine.Capitalize("asdasd ajlkdajs +asdasd"))
 	// piscine.PrintNbr(-9223372036854775808)
 }
