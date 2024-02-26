@@ -5,7 +5,7 @@ func Capitalize(s string) string {
 	arr2 := []rune{}
 	newWordFlag := false
 	for i := 0; i < len(arr1); i++ {
-		if i == 0 || newWordFlag && (arr1[i] >= 'a' && arr1[i] <= 'z') {
+		if (i == 0 || newWordFlag) && (arr1[i] >= 'a' && arr1[i] <= 'z') {
 			arr2 = append(arr2, arr1[i]-32)
 		} else {
 			arr2 = append(arr2, arr1[i])
