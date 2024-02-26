@@ -8,6 +8,9 @@ func Capitalize(s string) string {
 		if newWordFlag && (arr1[i] >= 'a' && arr1[i] <= 'z') {
 			arr2 = append(arr2, arr1[i]-32) // Convert to uppercase
 			newWordFlag = false
+		} else if newWordFlag && (arr1[i] >= 'A' && arr1[i] <= 'Z') {
+			arr2 = append(arr2, arr1[i]) // Already uppercase, add as it is
+			newWordFlag = false
 		} else if (arr1[i] < 'a' || arr1[i] > 'z') && (arr1[i] < 'A' || arr1[i] > 'Z') {
 			newWordFlag = true // Found a non-letter character, next character is the start of a new word
 			arr2 = append(arr2, arr1[i]) // Add the non-letter character as it is
