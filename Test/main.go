@@ -123,6 +123,6 @@ func IterativeFactorial(nb int) int {
 }
 
 func main() {
-	fmt.Println(piscine.ToUpper("askjhdkla\\shjd"))
+	fmt.Println(piscine.ToLower("askjHYUDHOShdkla\\shjd"))
 	// piscine.PrintNbr(-9223372036854775808)
 }
