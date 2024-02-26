@@ -11,7 +11,7 @@ func Capitalize(s string) string {
 			arr2 = append(arr2, arr1[i])
 		}
 		newWordFlag = false
-		if arr1[i] == ' ' || arr1[i] == '+' || ((arr1[i] < 'a' && arr1[i] > 'z') && (arr1[i] < 'A' && arr1[i] > 'Z')) {
+		if arr1[i] < 'A' || (arr1[i] > 'Z' && arr1[i] > 'a') || arr1[i] > 'z' {
 			newWordFlag = true
 		}
 	}
