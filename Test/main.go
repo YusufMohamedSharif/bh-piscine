@@ -121,6 +121,6 @@ func IterativeFactorial(nb int) int {
 }
 
 func main() {
-	piscine.PrintNbrInOrder(56423147)
+	piscine.PrintNbrInOrder(0)
 	// piscine.PrintNbr(-9223372036854775808)
 }

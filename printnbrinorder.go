@@ -6,6 +6,9 @@ func PrintNbrInOrder(n int) {
 	// Initialize an array to store the count of each digit
 	digitCount := [10]int{}
 
+	if n == 0 {
+		z01.PrintRune('0')
+	}
 	// Count the occurrence of each digit
 	for n > 0 {
 		digit := n % 10
