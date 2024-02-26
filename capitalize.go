@@ -15,7 +15,7 @@ func Capitalize(s string) string {
 			newWordFlag = true // Found a non-letter character, next character is the start of a new word
 			arr2 = append(arr2, arr1[i]) // Add the non-letter character as it is
 		} else {
-			arr2 = append(arr2, arr1[i]+32) // Convert to lowercase
+			arr2 = append(arr2, arr1[i]) // Add the character as it is (don't change case)
 			newWordFlag = false
 		}
 	}
