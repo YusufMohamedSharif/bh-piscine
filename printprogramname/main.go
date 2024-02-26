@@ -6,16 +6,19 @@ import (
 	"github.com/01-edu/z01"
 )
 
-func main() {
+/*func main() {
 	temp := ""
 	result := ""
-	programName := os.Args[:1]
-	args := programName[0]
-	for i := len(args) - 1; i >= 0; i-- {
-		if args[i] == '/' {
+	// programName := os.Args[:1]
+	// args := programName[0]
+
+	programName := os.Args[0]
+
+	for i := len(programName) - 1; i >= 0; i-- {
+		if programName[i] == '/' {
 			break
 		} else {
-			temp += string(args[i])
+			temp += string(programName[i])
 		}
 	}
 	for i := len(temp) - 1; i >= 0; i-- {
@@ -26,4 +29,14 @@ func main() {
 	}
 
 	z01.PrintRune('\n')
+}*/
+
+func main() {
+	programName := os.Args[0]
+
+	for i := 0; i < len(programName); i++ {
+		if programName[i] != '/' && programName[i] != '.' {
+			z01.PrintRune(rune(programName[i]))
+		}
+	}
 }
