@@ -25,8 +25,6 @@ func main() {
 			printChar(' ')
 		}
 	}
-
-	printChar('\n')
 }
 
 // stringToInt converts a string to an integer and returns true if successful, false otherwise
