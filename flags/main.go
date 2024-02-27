@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"strings"
 )
 
 func main() {
@@ -22,7 +23,7 @@ func main() {
 		switch arg {
 		case "--insert", "-i":
 			if i+1 < len(args) {
-				insertString = args[i+1]
+				insertString = strings.Split(args[i+1], "=")[1]
 				i++
 			}
 		case "--order", "-o":
