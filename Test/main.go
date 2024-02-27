@@ -120,9 +120,103 @@ func IterativeFactorial(nb int) int {
 	}
 }
 
+// //////Quest 4, 5, 6//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+func IterativeFactoriall(nb int) int {
+	if nb < 0 || nb > 20 {
+		return 0
+	} else {
+		result := 1
+		for i := 1; i <= nb; i++ {
+			result *= i
+		}
+		return result
+	}
+}
+
+func RecursiveFactorial(nb int) int {
+	if nb < 0 || nb > 20 {
+		return 0
+	} else if nb <= 1 {
+		return 1
+	} else {
+		return nb * RecursiveFactorial(nb-1)
+	}
+}
+
+func IterativePower(nb int, power int) int {
+	result := nb
+	if power == 0 {
+		return 1
+	} else if power < 0 {
+		return 0
+	} else {
+		for i := 1; i < power; i++ {
+			result *= nb
+		}
+	}
+	return result
+}
+
+func RecursivePower(nb int, power int) int {
+	if power < 0 {
+		return 0
+	} else if power == 0 {
+		return 1
+	} else if power == 1 {
+		return nb
+	} else {
+		return nb * RecursivePower(nb, power-1)
+	}
+}
+
+func Fibonacci(index int) int {
+	if index < 0 {
+		return -1
+	} else if index == 0 {
+		return 0
+	} else if index == 1 {
+		return 1
+	} else {
+		return Fibonacci(index-1) + Fibonacci(index-2)
+	}
+}
+
+func Sqrt(nb int) int {
+	if nb < 0 {
+		return 0
+	}
+
+	root := 0
+	for i := 0; i*i <= nb; i++ {
+		if i*i == nb {
+			root = i
+			break
+		}
+	}
+	return root
+}
+
+func IsPrime(n int) bool {
+	if n <= 1 {
+		return false
+	}
+	if n <= 3 {
+		return true
+	}
+	if n%2 == 0 || n%3 == 0 {
+		return false
+	}
+
+	for i := 5; i*i <= n; i += 6 {
+		if n%i == 0 || n%(i+2) == 0 {
+			return false
+		}
+	}
+	return true
+}
+
 func main() {
-	str1 := "Yousif"
-	str2 := "Yousif2"
-	fmt.Println(str1 + str2)
+	fmt.Println(Fibonacci(5))
+
 	// fmt.Println(piscine.Join([]string{"Hello!", " How", " are", " you?"}, "123"))
 }
