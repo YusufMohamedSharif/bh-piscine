@@ -62,11 +62,11 @@ func containsHelpFlag(args []string) bool {
 
 func extractInsertString(arg string) string {
 	insertStr := ""
-	for _, c := range arg {
-		if c == '=' {
-			continue
+	for i := 0; i < len(arg); i++ {
+		if arg[i] == '=' {
+			insertStr = arg[i+1:]
+			break
 		}
-		insertStr += string(c)
 	}
 	return insertStr
 }
