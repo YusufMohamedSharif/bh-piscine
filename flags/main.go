@@ -61,7 +61,7 @@ func containsHelpFlag(args []string) bool {
 }
 
 func extractInsertString(arg string) string {
-	for i := len(arg) - 1; i >= 0; i-- {
+	for i := 0; i < len(arg); i++ {
 		if arg[i] == '=' {
 			return arg[i+1:]
 		}
