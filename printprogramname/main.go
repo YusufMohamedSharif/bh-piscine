@@ -6,7 +6,7 @@ import (
 	"github.com/01-edu/z01"
 )
 
-/*func main() {
+func main() {
 	temp := ""
 	result := ""
 	// programName := os.Args[:1]
@@ -29,8 +29,9 @@ import (
 	}
 
 	z01.PrintRune('\n')
-}*/
+}
 
+/*
 func main() {
 	programName := os.Args[0]
 
@@ -39,4 +40,4 @@ func main() {
 			z01.PrintRune(rune(programName[i]))
 		}
 	}
-}
+}*/
