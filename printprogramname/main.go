@@ -2,7 +2,6 @@ package main
 
 import (
 	"os"
-	"strings"
 
 	"github.com/01-edu/z01"
 )
@@ -11,7 +10,13 @@ func main() {
 	programName := os.Args[0]
 
 	// Find the index of the last '/' in the program path
-	lastSlashIndex := strings.LastIndex(programName, "/")
+	lastSlashIndex := -1
+	for i := len(programName) - 1; i >= 0; i-- {
+		if programName[i] == '/' {
+			lastSlashIndex = i
+			break
+		}
+	}
 
 	// Extract the program name from the path
 	if lastSlashIndex != -1 {
