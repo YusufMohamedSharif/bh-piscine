@@ -26,7 +26,7 @@ func main() {
 		}
 	}
 
-	println()
+	printChar('\n')
 }
 
 // stringToInt converts a string to an integer and returns true if successful, false otherwise
@@ -41,7 +41,7 @@ func stringToInt(s string) (int, bool) {
 	return num, true
 }
 
-// printChar prints a single character without using fmt package
+// printChar prints a single character without using print or println functions
 func printChar(c byte) {
-	_, _ = os.Stdout.Write([]byte{c})
+	os.Stdout.Write([]byte{c})
 }
