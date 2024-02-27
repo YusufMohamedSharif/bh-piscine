@@ -2,16 +2,36 @@ package main
 
 import (
 	"os"
+	"strings"
 
 	"github.com/01-edu/z01"
 )
 
 func main() {
+	programName := os.Args[0]
+
+	// Find the index of the last '/' in the program path
+	lastSlashIndex := strings.LastIndex(programName, "/")
+
+	// Extract the program name from the path
+	if lastSlashIndex != -1 {
+		programName = programName[lastSlashIndex+1:]
+	}
+
+	// Print the program name character by character
+	for _, char := range programName {
+		z01.PrintRune(char)
+	}
+
+	z01.PrintRune('\n')
+}
+
+/*func main() {
+
 	temp := ""
 	result := ""
 	// programName := os.Args[:1]
 	// args := programName[0]
-
 	programName := os.Args[0]
 
 	for i := len(programName) - 1; i >= 0; i-- {
@@ -29,7 +49,7 @@ func main() {
 	}
 
 	z01.PrintRune('\n')
-}
+}*/
 
 /*
 func main() {
