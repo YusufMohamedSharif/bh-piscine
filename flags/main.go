@@ -61,10 +61,7 @@ func containsHelpFlag(args []string) bool {
 }
 
 func insertStringIntoString(insertString, mainString string) string {
-	if mainString == "" {
-		return insertString
-	}
-	return mainString + " " + insertString
+	return mainString + insertString
 }
 
 func orderString(str string) string {
@@ -86,9 +83,8 @@ func orderString(str string) string {
 		for _, c := range str {
 			if c == char {
 				result += string(c)
-				result += " "
 			}
 		}
 	}
-	return result[:len(result)-1]
+	return result
 }
