@@ -3,8 +3,6 @@ package main
 import (
 	"fmt"
 	"os"
-	"sort"
-	"strings"
 )
 
 func main() {
@@ -63,15 +61,34 @@ func containsHelpFlag(args []string) bool {
 }
 
 func insertStringIntoString(insertString, mainString string) string {
-	parts := strings.Split(mainString, " ")
-	if len(parts) > 1 {
-		return parts[0] + " " + insertString + " " + strings.Join(parts[1:], " ")
+	if mainString == "" {
+		return insertString
 	}
 	return mainString + " " + insertString
 }
 
 func orderString(str string) string {
-	strSlice := strings.Split(str, " ")
-	sort.Strings(strSlice)
-	return strings.Join(strSlice, " ")
+	if str == "" {
+		return ""
+	}
+	minChar := 'z' + 1
+	maxChar := 'a' - 1
+	for _, char := range str {
+		if char < minChar {
+			minChar = char
+		}
+		if char > maxChar {
+			maxChar = char
+		}
+	}
+	result := ""
+	for char := minChar; char <= maxChar; char++ {
+		for _, c := range str {
+			if c == char {
+				result += string(c)
+				result += " "
+			}
+		}
+	}
+	return result[:len(result)-1]
 }
