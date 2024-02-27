@@ -25,6 +25,9 @@ func main() {
 			printChar(' ')
 		}
 	}
+	if len(os.Args) > 1 {
+		printChar('\n')
+	}
 }
 
 // stringToInt converts a string to an integer and returns true if successful, false otherwise
