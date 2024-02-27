@@ -61,16 +61,16 @@ func containsHelpFlag(args []string) bool {
 }
 
 func extractInsertString(arg string) string {
-	for i := 0; i < len(arg); i++ {
-		if arg[i] == '=' {
-			if i+1 < len(arg) {
-				return arg[i+1:]
-			} else {
-				return "" // Return an empty string if '=' is at the end
-			}
+	insertStr := ""
+	foundEqual := false
+	for _, char := range arg {
+		if char == '=' {
+			foundEqual = true
+		} else if foundEqual {
+			insertStr += string(char)
 		}
 	}
-	return arg // Return the entire argument if no '=' is found
+	return insertStr
 }
 
 func insertStringIntoString(insertString, mainString string) string {
