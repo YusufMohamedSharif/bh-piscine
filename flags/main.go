@@ -64,7 +64,9 @@ func extractInsertString(arg string) string {
 	insertStr := ""
 	for i := 0; i < len(arg); i++ {
 		if arg[i] == '=' {
-			insertStr = arg[i+1:]
+			if i+1 < len(arg) {
+				insertStr = arg[i+1:]
+			}
 			break
 		}
 	}
