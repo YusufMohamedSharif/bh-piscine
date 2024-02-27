@@ -65,8 +65,9 @@ func extractInsertString(arg string) string {
 		if arg[i] == '=' {
 			if i+1 < len(arg) {
 				return arg[i+1:]
+			} else {
+				return "" // Return an empty string if '=' is at the end
 			}
-			break
 		}
 	}
 	return arg // Return the entire argument if no '=' is found
