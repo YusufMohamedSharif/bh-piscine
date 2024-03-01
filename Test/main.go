@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"os"
 
 	"github.com/01-edu/z01"
 )
@@ -215,8 +215,29 @@ func IsPrime(n int) bool {
 	return true
 }
 
+func FirstRune(s string) rune {
+	arr := []rune(s)
+	return arr[0]
+}
+
+func LastRune(s string) rune {
+	arr := []rune(s)
+	return arr[len(arr)-1]
+}
+
+func Concat(str1 string, str2 string) string {
+	return str1 + str2
+}
+
 func main() {
-	fmt.Println(Fibonacci(5))
+	// find the index of the last '/'
+
+	for i := len(os.Args) - 1; i >= 1; i-- {
+		for j := 0; j < len(os.Args[i]); j++ {
+			z01.PrintRune(rune(os.Args[i][j]))
+		}
+		z01.PrintRune('\n')
+	}
 
 	// fmt.Println(piscine.Join([]string{"Hello!", " How", " are", " you?"}, "123"))
 }
