@@ -8,6 +8,7 @@ func ConcatParams(args []string) string {
 		if i != len(args)-1 {
 			result += string('\n')
 		}
-		return result
+
 	}
+	return result
 }
