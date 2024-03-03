@@ -234,7 +234,8 @@ func Concat(str1 string, str2 string) string {
 func main() {
 	// find the index of the last '/'
 
-	fmt.Println(piscine.AppendRange(0, 1))
+	// fmt.Println(piscine.AppendRange(0, 1))
+	fmt.Println(piscine.MakeRange(0, 1))
 
 	// fmt.Println(piscine.Join([]string{"Hello!", " How", " are", " you?"}, "123"))
 }
