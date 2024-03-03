@@ -17,7 +17,7 @@ func main() {
 		if error != nil {
 			fmt.Println(error)
 		} else {
-			data := make([]byte, 20)
+			data := make([]byte, 100)
 			file.Read(data)
 			fmt.Println(string(data))
 			file.Close()
