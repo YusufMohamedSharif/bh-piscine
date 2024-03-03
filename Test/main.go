@@ -1,7 +1,9 @@
 package main
 
 import (
-	"os"
+	"fmt"
+
+	piscine "bh-piscine"
 
 	"github.com/01-edu/z01"
 )
@@ -232,12 +234,7 @@ func Concat(str1 string, str2 string) string {
 func main() {
 	// find the index of the last '/'
 
-	for i := len(os.Args) - 1; i >= 1; i-- {
-		for j := 0; j < len(os.Args[i]); j++ {
-			z01.PrintRune(rune(os.Args[i][j]))
-		}
-		z01.PrintRune('\n')
-	}
+	fmt.Println(piscine.AppendRange(5, 10))
 
 	// fmt.Println(piscine.Join([]string{"Hello!", " How", " are", " you?"}, "123"))
 }
