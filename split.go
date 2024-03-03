@@ -1,20 +1,15 @@
 package piscine
 
-import (
-	"strings"
-)
-
-func splitString(s, sep string) []string {
-	// Use strings.Split to split the string s by the separator sep
-	return strings.Split(s, sep)
+func Split(s, sep string) []string {
+	var result []string
+	start := 0
+	for i := 0; i+len(sep) <= len(s); i++ {
+		if s[i:i+len(sep)] == sep {
+			result = append(result, s[start:i])
+			start = i + len(sep)
+			i = start - 1
+		}
+	}
+	result = append(result, s[start:])
+	return result
 }
-
-/*
-func main() {
-	// Test the function with a sample input string and separator
-	s := "apple,banana,orange,grape"
-	sep := ","
-	result := splitString(s, sep)
-	fmt.Println(result) // Output: [apple banana orange grape]
-}
-*/
