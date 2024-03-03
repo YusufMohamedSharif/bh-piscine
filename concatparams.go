@@ -4,7 +4,10 @@ func ConcatParams(args []string) string {
 	result := ""
 
 	for i := 0; i < len(args); i++ {
-		result += args[i] + string('\n')
+		result += args[i]
+		if i != len(args)-1 {
+			result += string('\n')
+		}
+		return result
 	}
-	return result
 }
