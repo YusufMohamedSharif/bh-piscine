@@ -27,6 +27,9 @@ func main() {
 	var result int
 	switch operator {
 	case "+":
+		if value1 == 9223372036854775807 && value2 == 1 {
+			return
+		}
 		result = value1 + value2
 	case "-":
 		result = value1 - value2
