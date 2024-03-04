@@ -1,9 +1,9 @@
 package piscine
 
-import "fmt"
+import "github.com/01-edu/z01"
 
 func PrintNumber(a int) {
-	fmt.Print(a)
+	z01.PrintRune(rune(a))
 }
 
 func ForEach(f func(int), a []int) {
