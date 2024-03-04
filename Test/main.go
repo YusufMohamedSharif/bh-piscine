@@ -1,8 +1,6 @@
 package main
 
 import (
-	"fmt"
-
 	piscine "bh-piscine"
 
 	"github.com/01-edu/z01"
@@ -232,6 +230,18 @@ func Concat(str1 string, str2 string) string {
 }
 
 func main() {
-	test := []string{"Hello", "how", "are", "you?"}
-	fmt.Println(piscine.ConcatParams(test))
+	a := []int{1, 2, 3, 4, 5, 6}
+
+	piscine.ForEach(piscine.PrintNumber, a)
+
+	/*test := []string{"Hello", "how", "are", "you?"}
+	fmt.Println(piscine.ConcatParams(test))*/
+
+	/*data, err := os.ReadFile("filename.txt")
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	// Print the content of the file
+	fmt.Println(string(data))*/
 }
