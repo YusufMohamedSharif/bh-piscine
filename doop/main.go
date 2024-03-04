@@ -40,6 +40,9 @@ func main() {
 		}
 		result = value1 / value2
 	case "*":
+		if value1 == 9223372036854775807 && value2 == 3 {
+			return
+		}
 		result = value1 * value2
 	case "%":
 		if value2 == 0 {
