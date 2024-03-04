@@ -5,7 +5,7 @@ func PrintNumber(a int) {
 }
 
 func ForEach(f func(int), a []int) {
-	for i := 0; i < len(a)-1; i++ {
+	for i := 0; i < len(a); i++ {
 		f(a[i])
 	}
 }
