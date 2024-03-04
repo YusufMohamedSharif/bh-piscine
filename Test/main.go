@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+
 	piscine "bh-piscine"
 
 	"github.com/01-edu/z01"
@@ -233,6 +235,9 @@ func main() {
 	a := []int{1, 2, 3, 4, 5, 6}
 
 	piscine.ForEach(piscine.PrintNumber, a)
+
+	result := piscine.Map(piscine.IsPrime, a)
+	fmt.Println(result)
 
 	/*test := []string{"Hello", "how", "are", "you?"}
 	fmt.Println(piscine.ConcatParams(test))*/
