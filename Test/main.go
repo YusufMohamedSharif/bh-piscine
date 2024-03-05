@@ -231,13 +231,72 @@ func Concat(str1 string, str2 string) string {
 	return str1 + str2
 }
 
+func isH(s string) bool {
+	for _, char := range s {
+		if char == 'H' || char == 'h' {
+			return true
+		}
+	}
+	return false
+}
+
+// ////Quest 9, 8, 7////////////////////////////////////////////////////////////
+func ForEach(f func(int), a []int) {
+	for _, number := range a {
+		f(number)
+	}
+}
+
+func Map(f func(int) bool, a []int) []bool {
+	var result []bool
+	for _, number := range a {
+		result = append(result, f(number))
+	}
+	return result
+}
+
+func Any(f func(string) bool, a []string) bool {
+	for _, number := range a {
+		if f(number) {
+			return true
+		}
+	}
+	return false
+}
+
+func CountIf(f func(string) bool, tab []string) int {
+	count := 0
+	for _, number := range tab {
+		if f(number) {
+			count++
+		}
+	}
+	return count
+}
+
 func main() {
 	a := []int{1, 2, 3, 4, 5, 6}
 
-	piscine.ForEach(piscine.PrintNumber, a)
+	// piscine.ForEach(piscine.PrintNbr, a)
 
 	result := piscine.Map(piscine.IsPrime, a)
 	fmt.Println(result)
+
+	a1 := []string{"Hello", "how", "are", "you"}
+	a2 := []string{"This", "is", "4", "you"}
+
+	result1 := piscine.Any(piscine.IsNumeric, a1)
+	result2 := piscine.Any(piscine.IsNumeric, a2)
+
+	fmt.Println(result1)
+	fmt.Println(result2)
+
+	tab1 := []string{"Hello", "how", "are", "you"}
+	tab2 := []string{"This", "1", "is", "4", "you"}
+	answer1 := piscine.CountIf(piscine.IsNumeric, tab1)
+	answer2 := piscine.CountIf(piscine.IsNumeric, tab2)
+	fmt.Println(answer1)
+	fmt.Println(answer2)
 
 	/*test := []string{"Hello", "how", "are", "you?"}
 	fmt.Println(piscine.ConcatParams(test))*/
