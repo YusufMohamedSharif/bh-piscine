@@ -408,17 +408,26 @@ func Atoi(s string) int {
 	return out * sign
 }
 
+func Unmatch(numbers []int) int {
+	counts := make(map[int]int)
+
+	for _, num := range numbers {
+		counts[num]++
+	}
+
+	for num, count := range counts {
+		if count%2 != 0 {
+			return num
+		}
+	}
+	return -1
+}
+
 func main() {
 	// piscine.DescendComb()
 
-	a := []int{1, 2, 3, 4}
-	unmatch := piscine.Unmatch(a)
-	fmt.Println(unmatch)
-
-	// a := SplitWhiteSpaces("Hello how are you?")
-	// PrintWordsTables(a)
-
-	// fmt.Printf("%#v\n", SplitWhiteSpaces("Hello how are you?"))
+	middle := piscine.Abort(2, 3, 8, 5, 7)
+	fmt.Println(middle)
 }
 
 // func main() {
