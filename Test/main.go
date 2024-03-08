@@ -438,8 +438,8 @@ func Abort(a, b, c, d, e int) int {
 	if 5%2 == 1 {
 		return nums[middleIndex]
 	} else {
-		leftMiddle := middleIndex
-		rightMIddle := middleIndex + 1
+		leftMiddle := middleIndex - 1
+		rightMIddle := middleIndex
 		return (leftMiddle + rightMIddle) / 2
 	}
 }
@@ -447,8 +447,11 @@ func Abort(a, b, c, d, e int) int {
 func main() {
 	// piscine.DescendComb()
 
-	middle := piscine.Abort(2, 3, 8, 5, 7)
-	fmt.Println(middle)
+	steps := piscine.CollatzCountdown(12)
+	fmt.Println(steps)
+
+	// middle := piscine.Abort(2, 3, 8, 5, 7)
+	// fmt.Println(middle)
 }
 
 // func main() {
