@@ -25,7 +25,7 @@ func ShoppingSummaryCounter(str string) map[string]int {
 
 	// Handle the last item in the receipt string
 	if inWord {
-		item := receipt[itemStart:]
+		item := str[itemStart:]
 		itemCount[item]++
 	}
 
