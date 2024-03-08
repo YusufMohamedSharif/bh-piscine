@@ -409,7 +409,12 @@ func Atoi(s string) int {
 }
 
 func main() {
-	piscine.DescendComb()
+	// piscine.DescendComb()
+
+	a := []int{1, 2, 3, 1, 2, 3, 4, 4}
+	unmatch := piscine.Unmatch(a)
+	fmt.Println(unmatch)
+
 	// a := SplitWhiteSpaces("Hello how are you?")
 	// PrintWordsTables(a)
 
