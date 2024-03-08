@@ -11,10 +11,10 @@ func Unmatch(numbers []int) int {
 	// Check for the unpaired number
 	for num, count := range counts {
 		if count%2 != 0 {
-			return num
+			return num // Return the unpaired number
 		}
 	}
 
-	// If all numbers have a pair, return -1
+	// If no unpaired number is found, return -1
 	return -1
 }
