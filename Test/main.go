@@ -423,6 +423,27 @@ func Unmatch(numbers []int) int {
 	return -1
 }
 
+func Abort(a, b, c, d, e int) int {
+	nums := []int{a, b, c, d, e}
+
+	for i := 0; i < 5; i++ {
+		for j := 0; j < 4-i; j++ {
+			if nums[j] > nums[j+1] {
+				nums[j], nums[j+1] = nums[j+1], nums[j]
+			}
+		}
+	}
+
+	middleIndex := 5 / 2
+	if 5%2 == 1 {
+		return nums[middleIndex]
+	} else {
+		leftMiddle := middleIndex
+		rightMIddle := middleIndex + 1
+		return (leftMiddle + rightMIddle) / 2
+	}
+}
+
 func main() {
 	// piscine.DescendComb()
 
