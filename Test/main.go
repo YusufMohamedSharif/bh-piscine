@@ -231,15 +231,6 @@ func Concat(str1 string, str2 string) string {
 	return str1 + str2
 }
 
-func isH(s string) bool {
-	for _, char := range s {
-		if char == 'H' || char == 'h' {
-			return true
-		}
-	}
-	return false
-}
-
 // ////Quest 9, 8, 7////////////////////////////////////////////////////////////
 func ForEach(f func(int), a []int) {
 	for _, number := range a {
@@ -274,38 +265,168 @@ func CountIf(f func(string) bool, tab []string) int {
 	return count
 }
 
-func main() {
-	a := []int{1, 2, 3, 4, 5, 6}
+func CompareInt(a, b int) int {
+	if a == b {
+		return 0
+	} else if a < b {
+		return -1
+	} else {
+		return 1
+	}
+}
 
-	// piscine.ForEach(piscine.PrintNbr, a)
+func printStr(s string) {
+	for _, r := range s {
+		z01.PrintRune(r)
+	}
+	z01.PrintRune('\n')
+}
 
-	result := piscine.Map(piscine.IsPrime, a)
-	fmt.Println(result)
+func isEven(nbr int) bool {
+	if nbr%2 == 0 {
+		return true
+	} else {
+		return false
+	}
+}
 
-	a1 := []string{"Hello", "how", "are", "you"}
-	a2 := []string{"This", "is", "4", "you"}
+func F(a int) {
+	a = a + 1
+	fmt.Println(a)
+}
 
-	result1 := piscine.Any(piscine.IsNumeric, a1)
-	result2 := piscine.Any(piscine.IsNumeric, a2)
+func ForEachh(f func(int), a []int) {
+	for i := 0; i < len(a); i++ {
+		f(a[i])
+	}
+}
 
-	fmt.Println(result1)
-	fmt.Println(result2)
+func Anyy(f func(string) bool, a []string) bool {
+	for i := 0; i < len(a); i++ {
+		if f(a[i]) == true {
+			return true
+		}
+	}
+	return false
+}
 
-	tab1 := []string{"Hello", "how", "are", "you"}
-	tab2 := []string{"This", "1", "is", "4", "you"}
-	answer1 := piscine.CountIf(piscine.IsNumeric, tab1)
-	answer2 := piscine.CountIf(piscine.IsNumeric, tab2)
-	fmt.Println(answer1)
-	fmt.Println(answer2)
+func CountIff(f func(string) bool, tab []string) int {
+	counter := 0
+	for i := 0; i < len(tab); i++ {
+		if f(tab[i]) == true {
+			counter++
+		}
+	}
+	return counter
+}
 
-	/*test := []string{"Hello", "how", "are", "you?"}
-	fmt.Println(piscine.ConcatParams(test))*/
+func Mapp(f func(int) bool, a []int) []bool {
+	var result []bool
+	for i := 0; i < len(a); i++ {
+		result = append(result, f(a[i]))
+	}
+	return result
+}
 
-	/*data, err := os.ReadFile("filename.txt")
-	if err != nil {
-		fmt.Println(err)
+func AppendRange(min, max int) []int {
+	var result []int
+	for i := min; i < max; i++ {
+		result = append(result, i)
+	}
+	return result
+}
+
+func MakeRange(min, max int) []int {
+	if min >= max {
+		return nil
+	}
+	result := make([]int, max-min)
+	for i := 0; i < max-min; i++ {
+		result[i] = i + min
+	}
+	return result
+}
+
+func ConcatParams(args []string) string {
+	result := ""
+
+	for i := 0; i < len(args); i++ {
+		result += args[i]
+		if i != len(args)-1 {
+			result += "\n"
+		}
+
+	}
+	return result
+}
+
+func SplitWhiteSpaces(s string) []string {
+	var arr []string
+	result := ""
+	for i := 0; i < len(s); i++ {
+		if s[i] == ' ' || s[i] == '\t' || s[i] == '\n' {
+			if result != "" {
+				arr = append(arr, result)
+			}
+			result = ""
+		} else {
+			result += string(s[i])
+		}
+	}
+	if result != "" {
+		arr = append(arr, result)
 	}
 
-	// Print the content of the file
-	fmt.Println(string(data))*/
+	return arr
 }
+
+func PrintWordsTables(a []string) {
+	for _, word := range a {
+		for _, char := range word {
+			z01.PrintRune(char)
+		}
+		z01.PrintRune('\n')
+	}
+}
+
+func Atoi(s string) int {
+	out := 0
+	sign := 1
+
+	for i, char := range s {
+		if char >= '0' && char <= '9' {
+			num := char - '0'
+			out = out*10 + int(num)
+		} else if char == '-' && i == 0 {
+			sign = -1
+		} else if char == '+' && i == 0 {
+			sign = 1
+		} else {
+			return 0
+		}
+	}
+	return out * sign
+}
+
+func main() {
+	piscine.DescendComb()
+	// a := SplitWhiteSpaces("Hello how are you?")
+	// PrintWordsTables(a)
+
+	// fmt.Printf("%#v\n", SplitWhiteSpaces("Hello how are you?"))
+}
+
+// func main() {
+// 	if len(os.Args) != 2 {
+// 		fmt.Println("Wrong number of arguments")
+// 		return
+// 	}
+
+// 	content, err := os.ReadFile(os.Args[1])
+// 	if err != nil {
+// 		fmt.Println("Error: ", err)
+// 		return
+// 	}
+
+// 	fmt.Println(string(content))
+// }

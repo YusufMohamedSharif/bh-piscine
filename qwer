@@ -1,0 +1,155 @@
+package main
+
+import (
+	"fmt"
+	"os"
+	"strconv"
+)
+
+const N = 9 // Size of the Sudoku grid
+// isValid checks if a number can be placed in a given cell without violating Sudoku rules
+func isValid(board [][]int, row, col, num int) bool {
+	// Check if the number already exists in the same row or column
+	for i := 0; i < N; i++ {
+		if board[row][i] == num || board[i][col] == num {
+			return false
+		}
+	}
+	// Determine the top-left cell coordinates of the 3x3 subgrid
+	startRow, startCol := row-row%3, col-col%3
+	// Check if the number already exists in the 3x3 subgrid
+	for i := 0; i < 3; i++ {
+		for j := 0; j < 3; j++ {
+			if board[i+startRow][j+startCol] == num {
+				return false
+			}
+		}
+	}
+	return true
+}
+
+// solveSudoku recursively solves the Sudoku puzzle using backtracking
+func solveSudoku(board [][]int) bool {
+	emptyCell := true
+	var row, col int
+	// Find the first empty cell
+	for i := 0; i < N && emptyCell; i++ {
+		for j := 0; j < N && emptyCell; j++ {
+			if board[i][j] == 0 {
+				row, col = i, j
+				emptyCell = false
+			}
+		}
+	}
+	// Return true if the board is solved
+	if emptyCell {
+		return true
+	}
+	// Try numbers from 1-9 in the empty cell
+	for num := 1; num <= N; num++ {
+		if isValid(board, row, col, num) {
+			board[row][col] = num
+			// Recursively solve the remaining Sudoku puzzle
+			if solveSudoku(board) {
+				return true
+			}
+			// If the number doesn't lead to a solution, backtrack by resetting to 0
+			board[row][col] = 0
+		}
+	}
+	return false
+}
+
+// printBoard prints the Sudoku board
+func printBoard(board [][]int) {
+	// Iterate through each cell and print the board
+	for i := 0; i < N; i++ {
+		for j := 0; j < N; j++ {
+			fmt.Print(board[i][j], " ")
+		}
+		fmt.Println()
+	}
+}
+
+func main() {
+	args := os.Args[1:]
+	// Check if the number of input arguments is correct
+	if len(args) != N {
+		fmt.Println("Error")
+		return
+	}
+	// Initialize and populate the 9x9 board
+	board := make([][]int, N)
+	for i := range board {
+		// Initialize each row
+		board[i] = make([]int, N)
+		// Populate each row with numbers from the input arguments
+		for j, char := range args[i] {
+			if char == '.' {
+				board[i][j] = 0 // Represent empty cells with 0
+			} else {
+				num, err := strconv.Atoi(string(char))
+				if err != nil || num < 1 || num > 9 {
+					fmt.Println("Error")
+					return
+				}
+				board[i][j] = num
+			}
+		}
+	}
+	// Solve the Sudoku puzzle
+	if isValidSudoku(board) {
+		if solveSudoku(board) {
+			// If solved, print the solved Sudoku board
+			printBoard(board)
+		} else {
+			// If not solved, print an error message
+			fmt.Println("Error")
+		}
+	} else {
+		fmt.Println("Error")
+	}
+}
+
+func isValidSudoku(board [][]int) bool {
+	N := 9 // Size of the Sudoku grid
+	// Check rows and columns for validity
+	for i := 0; i < N; i++ {
+		row := make([]bool, N+1)
+		col := make([]bool, N+1)
+		for j := 0; j < N; j++ {
+			// Check row
+			if board[i][j] != 0 {
+				if row[board[i][j]] {
+					return false
+				}
+				row[board[i][j]] = true
+			}
+			// Check column
+			if board[j][i] != 0 {
+				if col[board[j][i]] {
+					return false
+				}
+				col[board[j][i]] = true
+			}
+		}
+	}
+	// Check 3x3 subgrids for validity
+	for i := 0; i < N; i += 3 {
+		for j := 0; j < N; j += 3 {
+			block := make([]bool, N+1)
+			for k := 0; k < 3; k++ {
+				for l := 0; l < 3; l++ {
+					// Check subgrid
+					if board[i+k][j+l] != 0 {
+						if block[board[i+k][j+l]] {
+							return false
+						}
+						block[board[i+k][j+l]] = true
+					}
+				}
+			}
+		}
+	}
+	return true
+}
