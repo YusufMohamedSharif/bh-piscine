@@ -22,6 +22,12 @@ func BTreeInsertData(root *TreeNode, data string) *TreeNode {
 	return root
 }
 
+// Define a wrapper function that takes a string argument and calls the original function f
+func wrapperFn(data string, f func(...interface{}) (int, error)) {
+	// Ignore the string argument and call the original function f
+	f()
+}
+
 func printOrderTraversal(root *TreeNode, niveau int, fn func(string)) {
 	if root == nil {
 		return
@@ -36,8 +42,11 @@ func printOrderTraversal(root *TreeNode, niveau int, fn func(string)) {
 
 func BTreeApplyByLevel(root *TreeNode, f func(...interface{}) (int, error)) {
 	h := BTreeLevelCount(root)
+	// Pass the wrapper function to printOrderTraversal
 	for i := 1; i <= h; i++ {
-		// printOrderTraversal(root, i, f)
+		printOrderTraversal(root, i, func(data string) {
+			wrapperFn(data, f)
+		})
 	}
 }
 
