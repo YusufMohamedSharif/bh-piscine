@@ -1,4 +1,4 @@
-package piscine /*
+package piscine
 
 type TreeNode struct {
 	Left, Right, Parent *TreeNode
@@ -19,4 +19,3 @@ func BTreeInsertData(root *TreeNode, data string) *TreeNode {
 	}
 	return root
 }
-*/

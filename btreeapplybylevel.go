@@ -1,12 +1,12 @@
 package piscine
 
-type TreeNode struct {
+type TreeNodee struct {
 	Data  string
-	Left  *TreeNode
-	Right *TreeNode
+	Left  *TreeNodee
+	Right *TreeNodee
 }
 
-func printOrderTraversal(root *TreeNode, niveau int, fn func(string)) {
+func printOrderTraversal(root *TreeNodee, niveau int, fn func(string)) {
 	if root == nil {
 		return
 	}
@@ -18,14 +18,14 @@ func printOrderTraversal(root *TreeNode, niveau int, fn func(string)) {
 	}
 }
 
-func BTreeApplyByLevel(root *TreeNode, fn func(string)) {
+func BTreeApplyByLevel(root *TreeNodee, fn func(string)) {
 	h := BTreeLevelCount(root)
 	for i := 1; i <= h; i++ {
 		printOrderTraversal(root, i, fn)
 	}
 }
 
-func BTreeLevelCount(root *TreeNode) int {
+func BTreeLevelCount(root *TreeNodee) int {
 	if root == nil {
 		return 0
 	}
