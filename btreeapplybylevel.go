@@ -34,10 +34,10 @@ func printOrderTraversal(root *TreeNode, niveau int, fn func(string)) {
 	}
 }
 
-func BTreeApplyByLevel(root *TreeNode, fn func(string)) {
+func BTreeApplyByLevel(root *TreeNode, f func(...interface{}) (int, error)) {
 	h := BTreeLevelCount(root)
 	for i := 1; i <= h; i++ {
-		printOrderTraversal(root, i, fn)
+		// printOrderTraversal(root, i, f)
 	}
 }
 
