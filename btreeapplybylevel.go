@@ -6,6 +6,21 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
+func BTreeInsertData(root *TreeNode, data string) *TreeNode {
+	if root == nil {
+		return &TreeNode{Data: data}
+	}
+
+	if data < root.Data {
+		root.Left = BTreeInsertData(root.Left, data)
+		root.Left = root
+	} else if data > root.Data {
+		root.Right = BTreeInsertData(root.Right, data)
+		root.Right = root
+	}
+	return root
+}
+
 func printOrderTraversal(root *TreeNode, niveau int, fn func(string)) {
 	if root == nil {
 		return
