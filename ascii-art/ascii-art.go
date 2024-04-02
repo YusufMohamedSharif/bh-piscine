@@ -66,24 +66,30 @@ func main() {
 
 		case '\\':
 			if arr[i+1] == 'n' {
-				fmt.Println(line1)
-				fmt.Println(line2)
-				fmt.Println(line3)
-				fmt.Println(line4)
-				fmt.Println(line5)
-				fmt.Println(line6)
-				fmt.Println(line7)
-				fmt.Println(line8)
-				fmt.Println()
-				line1 = ""
-				line2 = ""
-				line3 = ""
-				line4 = ""
-				line5 = ""
-				line6 = ""
-				line7 = ""
-				line8 = ""
-				i++
+				if line1 != "" {
+					fmt.Println(line1)
+					fmt.Println(line2)
+					fmt.Println(line3)
+					fmt.Println(line4)
+					fmt.Println(line5)
+					fmt.Println(line6)
+					fmt.Println(line7)
+					fmt.Println(line8)
+
+					line1 = ""
+					line2 = ""
+					line3 = ""
+					line4 = ""
+					line5 = ""
+					line6 = ""
+					line7 = ""
+					line8 = ""
+					i++
+				} else {
+					fmt.Println()
+					i++
+				}
+
 			} else {
 
 			}
