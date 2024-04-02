@@ -89,9 +89,6 @@ func main() {
 					fmt.Println()
 					i++
 				}
-
-			} else {
-
 			}
 
 		default:
