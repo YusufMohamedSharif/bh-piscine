@@ -1,4 +1,5 @@
 // https://github.com/hverby/piscine-go
+// https://github.com/eternal17
 package main
 
 import (
@@ -444,6 +445,8 @@ func Abort(a, b, c, d, e int) int {
 		return (leftMiddle + rightMIddle) / 2
 	}
 }
+
+//////////Quest 11, and 12///////////////////////////////////////////////////////////////////////////////////////////////////
 
 func main() {
 	// piscine.DescendComb()

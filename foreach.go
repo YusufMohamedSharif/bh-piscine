@@ -1,7 +1,7 @@
 package piscine
 
 func PrintNumber(a int) {
-	a = a * 2
+	a = a
 }
 
 func ForEach(f func(int), a []int) {
