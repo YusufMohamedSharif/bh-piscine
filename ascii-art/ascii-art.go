@@ -64,8 +64,18 @@ func main() {
 			line7 += "        "
 			line8 += "        "
 
+		case '"':
+			line1 += " _ _  "
+			line2 += "( | ) "
+			line3 += " V V "
+			line4 += "     "
+			line5 += "     "
+			line6 += "     "
+			line7 += "     "
+			line8 += "     "
+
 		case '\\':
-			if arr[i] != arr[len(arr)-1] {
+			if i != len(arr)-1 {
 				if arr[i+1] == 'n' {
 					if line1 != "" {
 						fmt.Println(line1)
@@ -91,7 +101,34 @@ func main() {
 						i++
 					}
 
+				} else if arr[i+1] == '"' {
+					line1 += " _ _  "
+					line2 += "( | ) "
+					line3 += " V V "
+					line4 += "     "
+					line5 += "     "
+					line6 += "     "
+					line7 += "     "
+					line8 += "     "
+				} else {
+					line1 += " __      "
+					line2 += " \\ \\     "
+					line3 += "  \\ \\    "
+					line4 += "   \\ \\   "
+					line5 += "    \\ \\  "
+					line6 += "     \\_\\ "
+					line7 += "         "
+					line8 += "         "
 				}
+			} else {
+				line1 += " __      "
+				line2 += " \\ \\     "
+				line3 += "  \\ \\    "
+				line4 += "   \\ \\   "
+				line5 += "    \\ \\  "
+				line6 += "     \\_\\ "
+				line7 += "         "
+				line8 += "         "
 			}
 
 		default:
