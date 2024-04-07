@@ -1,3 +1,4 @@
+// https://stackoverflow.com/questions/7760545/escape-double-quotes-in-parameter
 package main
 
 import (
@@ -7,7 +8,7 @@ import (
 
 func main() {
 	if len(os.Args) != 2 {
-		fmt.Println("Wrong number of arguments")
+		fmt.Println("Wrong number of arguments", len(os.Args))
 		return
 	}
 
@@ -24,14 +25,34 @@ func main() {
 	for i := 0; i < len(arr); i++ {
 		switch arr[i] {
 		case '!':
-			line1 += " _  "
-			line2 += "| | "
-			line3 += "| | "
-			line4 += "| | "
-			line5 += "|_| "
-			line6 += "(_) "
-			line7 += "    "
-			line8 += "    "
+			if arr[i+1] == '"' {
+				line1 += " _  "
+				line2 += "| | "
+				line3 += "| | "
+				line4 += "| | "
+				line5 += "|_| "
+				line6 += "(_) "
+				line7 += "    "
+				line8 += "    "
+
+				line1 += " _ _  "
+				line2 += "( | ) "
+				line3 += " V V "
+				line4 += "     "
+				line5 += "     "
+				line6 += "     "
+				line7 += "     "
+				line8 += "     "
+			} else {
+				line1 += " _  "
+				line2 += "| | "
+				line3 += "| | "
+				line4 += "| | "
+				line5 += "|_| "
+				line6 += "(_) "
+				line7 += "    "
+				line8 += "    "
+			}
 
 		case '#':
 			line1 += "   _  _    "
@@ -509,7 +530,7 @@ func main() {
 				line8 += "         "
 			}
 
-		default:
+		case ' ':
 			line1 += "     "
 			line2 += "     "
 			line3 += "     "
