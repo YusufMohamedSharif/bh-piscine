@@ -1,4 +1,15 @@
 // https://stackoverflow.com/questions/7760545/escape-double-quotes-in-parameter
+//'\!" #$%&'"'"'()*+,-./'
+/*
+__       _   _ _           _  _      _    _   __           _    __ __       _                                   __ $
+\ \     | | ( | )        _| || |_   | |  (_) / /   ___    ( )  / / \ \   /\| |/\     _                         / / $
+ \ \    | |  V V        |_  __  _| / __)    / /   ( _ )   |/  | |   | |  \ ` ' /   _| |_       ______         / /  $
+  \ \   | |              _| || |_  \__ \   / /    / _ \/\     | |   | | |_     _| |_   _|     |______|       / /   $
+   \ \  |_|             |_  __  _| (   /  / / _  | (_>  <     | |   | |  / , . \    |_|    _            _   / /    $
+    \_\ (_)               |_||_|    |_|  /_/ (_)  \___/\/     | |   | |  \/|_|\/          ( )          (_) /_/     $
+                                                               \_\ /_/                    |/                       $
+                                                                                                                   $
+*/
 package main
 
 import (
@@ -25,26 +36,37 @@ func main() {
 	for i := 0; i < len(arr); i++ {
 		switch arr[i] {
 		case '!':
-			if arr[i+1] == '"' {
-				line1 += " _  "
-				line2 += "| | "
-				line3 += "| | "
-				line4 += "| | "
-				line5 += "|_| "
-				line6 += "(_) "
-				line7 += "    "
-				line8 += "    "
+			if i != len(arr)-1 {
+				if arr[i+1] == '"' {
+					line1 += " _  "
+					line2 += "| | "
+					line3 += "| | "
+					line4 += "| | "
+					line5 += "|_| "
+					line6 += "(_) "
+					line7 += "    "
+					line8 += "    "
 
-				line1 += " _ _  "
-				line2 += "( | ) "
-				line3 += " V V "
-				line4 += "     "
-				line5 += "     "
-				line6 += "     "
-				line7 += "     "
-				line8 += "     "
+					line1 += " _ _  "
+					line2 += "( | ) "
+					line3 += " V V "
+					line4 += "     "
+					line5 += "     "
+					line6 += "     "
+					line7 += "     "
+					line8 += "     "
 
-				i++
+					i++
+				} else {
+					line1 += " _  "
+					line2 += "| | "
+					line3 += "| | "
+					line4 += "| | "
+					line5 += "|_| "
+					line6 += "(_) "
+					line7 += "    "
+					line8 += "    "
+				}
 			} else {
 				line1 += " _  "
 				line2 += "| | "
@@ -87,12 +109,12 @@ func main() {
 			line8 += "        "
 
 		case '&':
-			line1 += "  ___    "
-			line2 += " ( _ )   "
-			line3 += " / _ \\/\\ "
-			line4 += "| (_>  < "
-			line5 += " \\___/\\/ "
-			line6 += "         "
+			line1 += "         "
+			line2 += "  ___    "
+			line3 += " ( _ )   "
+			line4 += " / _ \\/\\ "
+			line5 += "| (_>  < "
+			line6 += " \\___/\\/ "
 			line7 += "         "
 			line8 += "         "
 
@@ -515,12 +537,12 @@ func main() {
 			line7 += " _/ | "
 			line8 += "|__/  "
 		case 'k':
-			line1 += " _     "
-			line2 += "| | _  "
-			line3 += "| |/ / "
-			line4 += "|   <  "
-			line5 += "|_|\\_\\ "
-			line6 += "       "
+			line1 += "       "
+			line2 += " _     "
+			line3 += "| | _  "
+			line4 += "| |/ / "
+			line5 += "|   <  "
+			line6 += "|_|\\_\\ "
 			line7 += "       "
 			line8 += "       "
 		case 'l':
@@ -545,21 +567,21 @@ func main() {
 
 		case 'n':
 			line1 += "        "
-			line2 += " _ __   "
-			line3 += "| '_ \\  "
-			line4 += "| | | | "
-			line5 += "|_| |_| "
-			line6 += "        "
+			line2 += "        "
+			line3 += " _ __   "
+			line4 += "| '_ \\  "
+			line5 += "| | | | "
+			line6 += "|_| |_| "
 			line7 += "        "
 			line8 += "        "
 
 		case 'o':
 			line1 += "        "
-			line2 += "  ___   "
-			line3 += " / _ \\  "
-			line4 += "| (_) | "
-			line5 += " \\___/  "
-			line6 += "        "
+			line2 += "        "
+			line3 += "  ___   "
+			line4 += " / _ \\  "
+			line5 += "| (_) | "
+			line6 += " \\___/  "
 			line7 += "        "
 			line8 += "        "
 
@@ -575,20 +597,20 @@ func main() {
 
 		case 'q':
 			line1 += "        "
-			line2 += "  __ _  "
-			line3 += " / _` | "
-			line4 += "| (_| | "
-			line5 += " \\__, | "
-			line6 += "    | | "
-			line7 += "    |_| "
-			line8 += "        "
+			line2 += "        "
+			line3 += "  __ _  "
+			line4 += " / _` | "
+			line5 += "| (_| | "
+			line6 += " \\__, | "
+			line7 += "    | | "
+			line8 += "    |_| "
 		case 'r':
 			line1 += "       "
-			line2 += " _ __  "
-			line3 += "| '__| "
-			line4 += "| |    "
-			line5 += "|_|    "
-			line6 += "       "
+			line2 += "       "
+			line3 += " _ __  "
+			line4 += "| '__| "
+			line5 += "| |    "
+			line6 += "|_|    "
 			line7 += "       "
 			line8 += "       "
 		case 's':
@@ -611,29 +633,29 @@ func main() {
 			line8 += "      "
 		case 'u':
 			line1 += "        "
-			line2 += " _   _  "
-			line3 += "| | | | "
-			line4 += "| |_| | "
-			line5 += " \\__,_| "
-			line6 += "        "
+			line2 += "        "
+			line3 += " _   _  "
+			line4 += "| | | | "
+			line5 += "| |_| | "
+			line6 += " \\__,_| "
 			line7 += "        "
 			line8 += "        "
 		case 'v':
 			line1 += "        "
-			line2 += "__   __ "
-			line3 += "\\ \\ / / "
-			line4 += " \\ V /  "
-			line5 += "  \\_/   "
-			line6 += "        "
+			line2 += "        "
+			line3 += "__   __ "
+			line4 += "\\ \\ / / "
+			line5 += " \\ V /  "
+			line6 += "  \\_/   "
 			line7 += "        "
-			line8 += "    "
+			line8 += "        "
 		case 'w':
 			line1 += "           "
-			line2 += "__      __ "
-			line3 += "\\ \\ /\\ / / "
-			line4 += " \\ V  V /  "
-			line5 += "  \\_/\\_/   "
-			line6 += "           "
+			line2 += "           "
+			line3 += "__      __ "
+			line4 += "\\ \\ /\\ / / "
+			line5 += " \\ V  V /  "
+			line6 += "  \\_/\\_/   "
 			line7 += "           "
 			line8 += "           "
 		case 'x':
@@ -647,20 +669,20 @@ func main() {
 			line8 += "       "
 		case 'y':
 			line1 += "        "
-			line2 += " _   _  "
-			line3 += "| | | | "
-			line4 += "| |_| | "
-			line5 += " \\__, | "
-			line6 += " __/ /  "
-			line7 += "|___/   "
-			line8 += "        "
+			line2 += "        "
+			line3 += " _   _  "
+			line4 += "| | | | "
+			line5 += "| |_| | "
+			line6 += " \\__, | "
+			line7 += " __/ /  "
+			line8 += "|___/   "
 		case 'z':
 			line1 += "      "
-			line2 += " ____ "
-			line3 += "|_  / "
-			line4 += " / /  "
-			line5 += "/___| "
-			line6 += "      "
+			line2 += "      "
+			line3 += " ____ "
+			line4 += "|_  / "
+			line5 += " / /  "
+			line6 += "/___| "
 			line7 += "      "
 			line8 += "      "
 
