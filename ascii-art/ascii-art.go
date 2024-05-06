@@ -1000,12 +1000,15 @@ func main() {
 
 		}
 	}
-	fmt.Println(line1)
-	fmt.Println(line2)
-	fmt.Println(line3)
-	fmt.Println(line4)
-	fmt.Println(line5)
-	fmt.Println(line6)
-	fmt.Println(line7)
-	fmt.Println(line8)
+	if line1 != "" {
+		fmt.Println(line1)
+		fmt.Println(line2)
+		fmt.Println(line3)
+		fmt.Println(line4)
+		fmt.Println(line5)
+		fmt.Println(line6)
+		fmt.Println(line7)
+		fmt.Println(line8)
+	}
+	
 }
