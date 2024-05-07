@@ -53,3 +53,26 @@ func Newline(n string, y map[int][]string) {
 		}
 	}
 }
+
+/*func Newline(n string, y map[int][]string) {
+	replaceNewline := strings.ReplaceAll(n, "\\n", "\n")
+	wordsSlice := strings.Split(replaceNewline, "\n")
+	if wordsSlice[0] == "" {
+		// If there are no characters before \n, print only one new line
+		fmt.Println()
+	} else {
+		// If there are characters before \n, print eight new lines
+		for i := 0; i < 8; i++ {
+			fmt.Println()
+		}
+	}
+	for _, word := range wordsSlice {
+		for j := 0; j < len(y[32]); j++ {
+			for _, letter := range word {
+				fmt.Print(y[int(letter)][j])
+			}
+			fmt.Println()
+		}
+	}
+}*/
+
