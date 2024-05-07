@@ -47,8 +47,8 @@ func main() {
 					line7 += "    "
 					line8 += "    "
 
-					line1 += " _ _  "
-					line2 += "( | ) "
+					line1 += " _ _ "
+					line2 += "( | )"
 					line3 += " V V "
 					line4 += "     "
 					line5 += "     "
@@ -957,10 +957,9 @@ func main() {
 						fmt.Println()
 						i++
 					}
-
 				} else if arr[i+1] == '"' {
-					line1 += " _ _  "
-					line2 += "( | ) "
+					line1 += " _ _ "
+					line2 += "( | )"
 					line3 += " V V "
 					line4 += "     "
 					line5 += "     "
@@ -1010,5 +1009,4 @@ func main() {
 		fmt.Println(line7)
 		fmt.Println(line8)
 	}
-	
 }
