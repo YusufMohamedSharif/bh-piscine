@@ -8,6 +8,16 @@ import (
 )
 
 func main() {
+
+	if len(os.Args) != 2{
+		fmt.Println("Wrong number of arguments!")
+		return
+	}
+	for i :=0; i< len(os.Args); i++ {
+		fmt.Println("index" , i, " : ", os.Args[i])
+	}
+	
+
 	// opening the file in read-only mode. The file must exist (in the current working directory)
 	file, _ := os.Open("standard.txt")
 
@@ -20,6 +30,7 @@ func main() {
 
 	for scanned.Scan() {
 		lines = append(lines, scanned.Text())
+		
 	}
 
 	file.Close()
@@ -36,8 +47,14 @@ func main() {
 		}
 	}
 	// string that user inputs
-	userInput := os.Args[1]
-	Newline(userInput, asciiChrs)
+	if (len(os.Args[1]) > 1){
+		userInput := os.Args[1]
+		Newline(userInput, asciiChrs)
+	} else {
+		fmt.Println("Wrong Input!")
+	}
+	
+	
 }
 
 // Newline function prints string horizontally and with new line if user specifies
@@ -47,7 +64,13 @@ func Newline(n string, y map[int][]string) {
 	for _, word := range wordsSlice {
 		for j := 0; j < len(y[32]); j++ {
 			for _, letter := range word {
+				
+				if y[int(letter)][j] == string('\n'){
+					fmt.Println()
+					break
+			} else {
 				fmt.Print(y[int(letter)][j])
+			}
 			}
 			fmt.Println()
 		}
