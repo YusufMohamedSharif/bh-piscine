@@ -121,6 +121,13 @@ func main() {
 		lines = append(lines, scanned.Text())
 	}
 
+	for _, letter := range os.Args[1] {
+		if (letter > 126 || letter < 32) && (letter != '\n' && letter != 13 && letter != 10) {
+			fmt.Println("Wrong input check input charachters!")
+			return
+		}
+	}
+
 	file.Close()
 
 	asciiChrs := make(map[int][]string)
@@ -144,27 +151,32 @@ func Newline(n string, y map[int][]string) {
 	replaceNewline := strings.ReplaceAll(n, "\\n", "\n")
 	wordsSlice := strings.Split(replaceNewline, "\n")
 	counter := 0
+	temp := 0
 	for _, word := range wordsSlice {
+		if len(word) != 0 && word != " " {
+			counter++
+		}
+	}
+	fmt.Println("counter: ", counter)
+	for i, word := range wordsSlice {
 		flag := false
 		for j := 0; j < len(y[32]); j++ {
 			for _, letter := range word {
-					fmt.Print(y[int(letter)][j])
+				fmt.Print(y[int(letter)][j])
 			}
-			
-if len(word) != 0{
-	fmt.Println("")
-} else if !flag && counter > 0{
-	fmt.Println("")
-	flag = true
-}
-						
-					
-		
-			
-			
+
+			if len(word) != 0 {
+				fmt.Println("U")
+				temp++
+			} else if (!flag && i != len(wordsSlice)-1) || (!flag && counter > 0) {
+				fmt.Println("Q")
+				flag = true
+			}
+
 		}
-		counter++
+		// counter++
 	}
+	fmt.Println("temp: ", temp)
 }
 
 /*func Newline(n string, y map[int][]string) {
